@@ -38,3 +38,5 @@ main = scotty 3000 $ do
   get "/" $ do
     content <- responseHTMLContent getRetroJSON
     html $ mconcat [style, "<body><div>", content, "</div></body>"]
+  get (regex ".*") $
+    redirect "/"
